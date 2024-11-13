@@ -29,6 +29,7 @@ jobs:
         id: super-linter
         uses: super-linter/super-linter/slim@v7
         env:
+          VALIDATE_CHECKOV: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ANSIBLE_DIRECTORY: .

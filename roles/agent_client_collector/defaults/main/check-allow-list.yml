@@ -147,21 +147,21 @@ agent_client_collector_check_allow_list:
     args:
       - "--logger_min_status 1"
       - "--json"
-      - "\"select network_name, last_connected, captive_portal FROM wifi_networks WHERE captive_portal=1\""
-      - "\"select * from apps\""
-      - "\"select * from etc_hosts\""
-      - "\"select * from os_version\""
-      - "\"select DISTINCT processes.name, listening_ports.port, processes.pid FROM listening_ports JOIN processes USING (pid) WHERE listening_ports.address = '0.0.0.0'\"" # noqa yaml[line-length]
-      - "\"select * from logged_in_users\""
-      - "\"select * from uptime\""
-      - "\"select name, path, pid FROM processes WHERE on_disk = 0\""
-      - "\"select u.username, g.gid, g.groupname FROM users u JOIN user_groups ug USING (uid) JOIN groups g ON ug.gid = g.gid WHERE uid > 500\""
-      - "\"select pid, name, uid, resident_size from processes order by resident_size desc limit 10\""
-      - "\"select * from system_info\""
-      - "\"select * from certificates\""
-      - "\"select path, type, round((blocks_available * blocks_size *10e-10),2) as gigs_free from mounts where path='/'\""
-      - "\"select * from chrome_extensions\""
-      - "\"select name from kernel_info\""
+      - '"select network_name, last_connected, captive_portal FROM wifi_networks WHERE captive_portal=1"'
+      - '"select * from apps"'
+      - '"select * from etc_hosts"'
+      - '"select * from os_version"'
+      - '"select DISTINCT processes.name, listening_ports.port, processes.pid FROM listening_ports JOIN processes USING (pid) WHERE listening_ports.address = ''0.0.0.0''"' # noqa yaml[line-length]
+      - '"select * from logged_in_users"'
+      - '"select * from uptime"'
+      - '"select name, path, pid FROM processes WHERE on_disk = 0"'
+      - '"select u.username, g.gid, g.groupname FROM users u JOIN user_groups ug USING (uid) JOIN groups g ON ug.gid = g.gid WHERE uid > 500"'
+      - '"select pid, name, uid, resident_size from processes order by resident_size desc limit 10"'
+      - '"select * from system_info"'
+      - '"select * from certificates"'
+      - '"select path, type, round((blocks_available * blocks_size *10e-10),2) as gigs_free from mounts where path=''/''"'
+      - '"select * from chrome_extensions"'
+      - '"select name from kernel_info"'
     skip_arguments: "false"
   - exec: "read-file.rb"
     skip_arguments: "true"
