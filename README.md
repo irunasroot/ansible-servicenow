@@ -1,4 +1,5 @@
 # irunasroot.servicenow
+
 [![Linter](https://github.com/irunasroot/ansible-servicenow/actions/workflows/linter.yaml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 Collection version 2.0.0
@@ -10,8 +11,9 @@ Collection version 2.0.0
 
 A collection to manage ServiceNow
 
-[!CAUTION]
-The refactoring to v2 breaks all functionalities of v1. Please migrate your playbooks to the proper variables.
+> [!CAUTION]
+> The refactoring to v2 breaks all functionalities of v1. Please migrate your
+> playbooks to the proper variables.
 
 Author:
 
