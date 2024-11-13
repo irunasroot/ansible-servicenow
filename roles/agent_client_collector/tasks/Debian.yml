@@ -1,0 +1,9 @@
+- name: "Installing Agent"
+  ansible.builtin.apt:
+    name: >-
+      {%- if agent_client_collector_download_path is not defined -%}
+      {{- '-'.join((agent_client_collector_package_name, agent_client_collector_version)) -}}
+      {%- else -%}{{- omit -}}
+      {%- endif -%}
+    deb: "{{ agent_client_collector_download_path | default(omit) }}"
+    state: "present"

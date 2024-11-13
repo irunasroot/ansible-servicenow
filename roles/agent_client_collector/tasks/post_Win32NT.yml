@@ -1,0 +1,18 @@
+- name: "Generate acc.yml Configuration File"
+  register: _acc_yaml_status
+  ansible.windows.win_template:
+    src: "acc.yml.j2"
+    dest: "{{ agent_client_collector_config_file_path }}"
+
+- name: "Generate check-allow-list.json Configuration File"
+  register: _allow_list_status
+  ansible.windows.win_template:
+    src: "check-allow-list.json.j2"
+    dest: "{{ agent_client_collector_check_allow_list_file_path }}"
+
+- name: "Checking if config files changed"
+  changed_when: "_acc_yaml_status.changed or _allow_list_status.changed"
+  notify:
+    - "Restart Agent Client Collector Windows Service"
+  ansible.builtin.debug:
+    msg: "Checking if configuration files have changed"

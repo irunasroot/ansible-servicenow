@@ -1,17 +1,32 @@
-# Ansible Collection - irunasroot.servicenow
-Collection to help manage various aspects of ServiceNow
+# irunasroot.servicenow
+[![Linter](https://github.com/irunasroot/ansible-servicenow/actions/workflows/linter.yaml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-# Features
+Collection version 2.0.0
 
-## [Agent Client Collector](roles/agent_client_collector/README.md)
-Installs and configures the Agent Client Collector (ACC) agent.
+- [Description](#description)
+- [Plugin Index](#plugin-index)
 
-There's a base role that will install, configure, and restart the ACC on the inventory, but can also be broken down into
-individual roles if needed. All the documentation regarding this role can be found in the [role's readme](roles/agent_client_collector/README.md).
+## Description
 
-### Roles
-* agent_client_collector
-  * agent_client_collector/install
-  * agent_client_collector/configuration
-  * agent_client_collector/restart
-  * agent_client_collector/uninstall
+A collection to manage ServiceNow
+
+[!CAUTION]
+The refactoring to v2 breaks all functionalities of v1. Please migrate your playbooks to the proper variables.
+
+Author:
+
+- Dennis Whitney <[denniswhitney@irunasroot.com](denniswhitney@irunasroot.com)>
+
+Supported ansible-core versions:
+
+- 2.10.0 or newer
+
+## Plugin Index
+
+These are the plugins in the irunasroot.servicenow collection:
+
+### Modules
+
+- [irunasroot.servicenow.agent_client_collector][1] - Install Agent Client Collector
+
+[1]: docs/irunasroot.servicenow.agent_client_collector.md

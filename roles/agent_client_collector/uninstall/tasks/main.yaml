@@ -1,2 +1,0 @@
-- name: "Executing Uninstall for {{ ansible_system }}"
-  include_tasks: "{{ ansible_system }}.yaml"

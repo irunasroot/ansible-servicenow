@@ -1,0 +1,9 @@
+- name: "Restart Agent Client Collector"
+  ansible.builtin.service:
+    name: "acc"
+    state: "restarted"
+
+- name: "Restart Agent Client Collector Windows Service"
+  ansible.windows.win_service:
+    name: "AgentClientCollector"
+    state: "restarted"

@@ -1,0 +1,4 @@
+- name: "Installing Agent"
+  ansible.builtin.dnf:
+    name: "{{ agent_client_collector_download_path | default('-'.join((agent_client_collector_package_name, agent_client_collector_version)), true) }}"
+    state: "present"

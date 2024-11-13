@@ -1,0 +1,9 @@
+- name: Converge
+  hosts: all
+  vars:
+    agent_client_collector_version: "3.5.5"
+    _servicenow_url: "https://install.service-now.com/glide/distribution/builds/package/app-signed"
+    _acc_package: "agent-client-collector-{{ agent_client_collector_version }}-ubuntu-1804_amd64.deb"
+    agent_client_collector_download_path: "{{ _servicenow_url }}/{{ _acc_package }}"
+  roles:
+    - role: "irunasroot.servicenow.agent_client_collector"

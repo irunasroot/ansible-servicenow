@@ -1,0 +1,7 @@
+- name: "Installing Agent"
+  ansible.windows.win_package:
+    path: "{{ agent_client_collector_download_path }}"
+    provider: "msi"
+    product_id: "{{ agent_client_collector_product_code }}"
+    arguments: "/quiet ACC_MID='' ACC_API_KEY=''"
+    state: "present"

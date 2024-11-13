@@ -1,0 +1,51 @@
+agent_client_collector_config_name: "{{ ansible_fqdn }}"
+agent_client_collector_config_backend_url: []
+agent_client_collector_config_api_key: "{{ undef() }}"
+agent_client_collector_config_agent_key_id: "{{ undef() }}"
+agent_client_collector_config_user: "{{ undef() }}"
+agent_client_collector_config_password: "{{ undef() }}"
+agent_client_collector_config_log_level: "info"
+agent_client_collector_config_skip_tls_verify: "true"
+agent_client_collector_config_trusted_ca_file: "{{ undef() }}"
+agent_client_collector_config_allow_list: "{{ agent_client_collector_check_allow_list_file_path }}"
+
+agent_client_collector_config_redact:
+  - "username"
+  - "bearer_token"
+  - "auth_algorithm"
+  - "access_key"
+  - "enrollment_number"
+  - "auth_method"
+  - "client_id"
+  - "ea_credential"
+  - "certificate"
+  - "cert_alias"
+  - "secret_key"
+  - "password"
+  - "passwd"
+  - "pass"
+  - "api_key"
+  - "api_token"
+  - "private_key"
+  - "secret"
+  - "ssh_private_key"
+  - "ssh_passphrase"
+  - "authentication_key"
+  - "authentication_protocol"
+  - "privacy_key"
+  - "privacy_protocol"
+
+agent_client_collector_config_verify_plugin_signature: "true"
+agent_client_collector_config_max_running_checks: 10
+
+agent_client_collector_config_agent_cpu_threshold_cpu_percentage_limit: 5
+agent_client_collector_config_agent_cpu_threshold_repeated_high_cpu_num: 3
+agent_client_collector_config_agent_cpu_threshold_monitor_interval_sec: 60
+agent_client_collector_config_agent_cpu_threshold_agent_cpu_threshold_disabled: "false"
+agent_client_collector_config_agent_cpu_threshold_proxy_cpu_percentage_limit: 15
+
+agent_client_collector_config_disable_sockets: "true"
+agent_client_collector_config_statsd_disable: "true"
+agent_client_collector_config_check_commands_prefer_installed: "false"
+
+agent_client_collector_config_enable_auto_mid_selection: "true"
