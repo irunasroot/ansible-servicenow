@@ -1,0 +1,16 @@
+agent_client_collector_package_name: "agent-client-collector"
+agent_client_collector_version: "{{ undef() }}"
+agent_client_collector_download_path: "{{ undef() }}"
+agent_client_collector_product_code: "{{ undef() }}"
+agent_client_collector_config_file_path: |-
+  {%- if ansible_system == 'Win32NT' -%}
+  {{- ('C:/', 'ProgramData', 'ServiceNow', 'agent-client-collector', 'config', 'acc.yml') | ansible.builtin.path_join -}}
+  {%- else -%}
+  {{- ('/', 'etc', 'servicenow', 'agent-client-collector', 'acc.yml') | ansible.builtin.path_join -}}
+  {%- endif -%}
+agent_client_collector_check_allow_list_file_path: |-
+  {%- if ansible_system == 'Win32NT' -%}
+  {{- ('C:/', 'ProgramData', 'ServiceNow', 'agent-client-collector', 'config', 'check-allow-list.json') | ansible.builtin.path_join -}}
+  {%- else -%}
+  {{- ('/', 'etc', 'servicenow', 'agent-client-collector', 'check-allow-list.json') | ansible.builtin.path_join -}}
+  {%- endif -%}

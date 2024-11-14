@@ -1,0 +1,6 @@
+---
+driver:
+  name: vagrant
+platforms:
+  - name: instance
+    box: generic/oracle9

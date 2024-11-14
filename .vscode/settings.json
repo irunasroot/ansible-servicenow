@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "**/tasks/*.yaml": "ansible",
+    "**/tasks/*.yml": "ansible",
+    "**/defaults/**/*.yaml": "ansible",
+    "**/defaults/**/*.yml": "ansible",
+    "*.j2": "ansible-jinja"
+  }
+}

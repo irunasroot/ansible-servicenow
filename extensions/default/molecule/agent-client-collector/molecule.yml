@@ -1,0 +1,35 @@
+dependency:
+  name: "galaxy"
+
+driver:
+  name: "default"
+  options:
+    managed: true
+    ansible_connection_options:
+      ansible_connection: local
+
+provisioner:
+  name: "ansible"
+  connection_options:
+    ansible_connection: local
+    ansible_become: true
+
+verifier:
+  name: "ansible"
+
+platforms:
+  - name: "localhost"
+
+scenario:
+  test_sequence:
+    - dependency
+    - cleanup
+    - destroy
+    - syntax
+    - create
+    - prepare
+    - converge
+    - side_effect
+    - verify
+    - cleanup
+    - destroy

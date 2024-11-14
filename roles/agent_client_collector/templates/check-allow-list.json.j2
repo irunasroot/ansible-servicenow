@@ -1,5 +1,5 @@
 [
-{% for allowable in acc_check_allow_list %}
+{% for allowable in agent_client_collector_check_allow_list %}
   {
     "exec": "{{ allowable.exec }}",
     "skip_arguments": {{ allowable.skip_arguments | default(false) }},
