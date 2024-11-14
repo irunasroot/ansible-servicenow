@@ -1,0 +1,82 @@
+name: Galaxy Publish
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+permissions:
+  contents: read
+  packages: read
+  statuses: write
+
+jobs:
+  validate-version:
+    if: github.event.pull_request.merged == true
+
+    name: Check Collection Version
+    runs-on: ubuntu-latest
+
+    outputs:
+      local-version: ${{ steps.local-version.outputs.version }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install requirements
+        working-directory: .github/scripts
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+
+      - name: Get collection published version
+        id: published-version
+        working-directory: .github/scripts
+        run: |
+          echo "version=$(python3 helper.py published-version)" >> "$GITHUB_OUTPUT"
+
+      - name: Get collection local version
+        working-directory: .github/scripts
+        id: local-version
+        run: |
+          echo "version=$(python3 helper.py local-version --file ../../galaxy.yml)" >> "$GITHUB_OUTPUT"
+
+      - name: Validate collection version
+        run: |
+          python3 helper.py compare-versions --published-version ${{ steps.published-version.outputs.version }} \
+            --local-version ${{ steps.local-version.outputs.version }}
+
+  publish:
+    name: Publish
+    needs: validate-version
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install ansible-core
+        working-directory: extensions/default
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install ansible-core
+
+      - name: Build collection
+        run: |
+          ansible-galaxy collection build .
+
+      - name: Publish collection
+        env:
+          COLLECTION_VERSION: ${{ needs.validate-version.outputs.local-version }}
+        run: |
+          ansible-galaxy collection publish \
+            --token ${{ secrets.GALAXY_TOKEN }} \
+            "irunasroot-servicenow-${COLLCTION_VERSION}.tar.gz"

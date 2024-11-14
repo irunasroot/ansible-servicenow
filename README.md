@@ -1,6 +1,7 @@
 # irunasroot.servicenow
 
-[![Linter](https://github.com/irunasroot/ansible-servicenow/actions/workflows/linter.yaml/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Linter](https://github.com/irunasroot/ansible-servicenow/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Molecule](https://github.com/irunasroot/ansible-servicenow/actions/workflows/molecule.yml/badge.svg)](https://ansible.readthedocs.io/projects/molecule/)
 
 Collection version 2.0.0
 
