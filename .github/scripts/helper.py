@@ -1,14 +1,14 @@
+#!/usr/bin/env python3
+
 """
 Helper script for GitHub Actions
 """
 
-#!/usr/bin/env python3
-
-from pathlib import Path
 from argparse import ArgumentParser
+from pathlib import Path
 
-import yaml
 import requests
+import yaml
 
 
 class VersionMismatch(Exception):

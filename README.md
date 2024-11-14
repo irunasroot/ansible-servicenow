@@ -1,7 +1,9 @@
 # irunasroot.servicenow
 
-[![Linter](https://github.com/irunasroot/ansible-servicenow/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
-[![Molecule](https://github.com/irunasroot/ansible-servicenow/actions/workflows/molecule.yml/badge.svg)](https://ansible.readthedocs.io/projects/molecule/)
+[![GitHub License](https://img.shields.io/github/license/irunasroot/ansible-servicenow?style=for-the-badge&logo=github)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/irunasroot/ansible-servicenow/linter.yml?style=for-the-badge&label=Lint%20Codebase&logo=github)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/irunasroot/ansible-servicenow/molecule.yml?style=for-the-badge&logo=GitHub&label=Molecule%20Tests)](https://ansible.readthedocs.io/projects/molecule/)
+[![Code style: black](https://img.shields.io/badge/Code%20Style-black-000000.svg?style=for-the-badge&logo=github)](https://github.com/psf/black)
 
 Collection version 2.0.0
 
