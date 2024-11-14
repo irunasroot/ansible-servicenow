@@ -16,7 +16,6 @@ tags:
   - "snow"
   - "servicenow"
   - "acc"
-  - "agent-client-collector"
 repository: "https://github.com/irunasroot/ansible-servicenow"
 documentation: "https://github.com/irunasroot/ansible-servicenow/wiki"
 homepage: "https://github.com/irunasroot/ansible-servicenow"
