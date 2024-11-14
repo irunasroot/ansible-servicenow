@@ -48,6 +48,7 @@ jobs:
           echo "version=$(python3 helper.py local-version --file ../../galaxy.yml)" >> "$GITHUB_OUTPUT"
 
       - name: Validate collection version
+        working-directory: .github/scripts
         run: |
           python3 helper.py compare-versions --published-version ${{ steps.published-version.outputs.version }} \
             --local-version ${{ steps.local-version.outputs.version }}
