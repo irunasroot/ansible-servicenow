@@ -33,6 +33,10 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
 
+      - name: Install collection
+        run: |
+          ansible-galaxy collection install .
+
       - name: Test with molecule
         working-directory: extensions/default
         run: |
