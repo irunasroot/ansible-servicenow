@@ -28,6 +28,8 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v5
+        with:
+          python-version: 3.13.0
 
       - name: Install requirements
         working-directory: .github/scripts
@@ -63,6 +65,8 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v5
+        with:
+          python-version: 3.13.0
 
       - name: Install ansible-core
         working-directory: extensions/default
