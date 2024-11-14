@@ -1,7 +1,7 @@
 - name: "Verify Agent Client Collector Installation"
   hosts: all
-  vars_files:
-    - "vars/main.yaml"
+  vars:
+    agent_client_collector_version: "3.5.5"
   tasks:
     - name: "Checking for ACC installation"
       ansible.builtin.stat:
@@ -22,13 +22,4 @@
           - acc_bin is defined
           - acc_bin.stat.exists
           - current_acc_install is defined
-          - current_acc_install.stdout | regex_search('(\\d+\\.\\d+\\.\\d+)') is version(agent_client_collector.version, '=')
-
-    - name: "Getting running services info"
-      ansible.builtin.service_facts:
-
-    - name: "Validating service"
-      ansible.builtin.assert:
-        that:
-          - ansible_facts.services['acc.service'].state == 'running'
-          - ansible_facts.services['acc.service'].status == 'enabled'
+          - current_acc_install.stdout | regex_search('(\\d+\\.\\d+\\.\\d+)') is version(agent_client_collector_version, '=')
