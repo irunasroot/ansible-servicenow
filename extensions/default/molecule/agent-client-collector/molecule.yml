@@ -15,4 +15,4 @@ verifier:
   name: "ansible"
 
 platforms:
-  - name: "local"
+  - name: "localhost"
