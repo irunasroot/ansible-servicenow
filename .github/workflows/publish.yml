@@ -75,9 +75,7 @@ jobs:
           ansible-galaxy collection build .
 
       - name: Publish collection
-        env:
-          COLLECTION_VERSION: ${{ needs.validate-version.outputs.local-version }}
         run: |
           ansible-galaxy collection publish \
             --token ${{ secrets.GALAXY_TOKEN }} \
-            "irunasroot-servicenow-$COLLCTION_VERSION.tar.gz"
+            irunasroot-servicenow-${{ needs.validate-version.outputs.local-version }}.tar.gz
