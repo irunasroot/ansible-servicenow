@@ -12,6 +12,7 @@ provisioner:
   name: "ansible"
   connection_options:
     ansible_connection: local
+    ansible_become: true
 
 verifier:
   name: "ansible"
